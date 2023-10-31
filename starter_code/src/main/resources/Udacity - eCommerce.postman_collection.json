@@ -45,21 +45,6 @@
 		{
 			"name": "Get User By Id",
 			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "12345678",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "Naum",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [
 					{
@@ -172,21 +157,6 @@
 		{
 			"name": "Get Item By Name",
 			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "12345678",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "Naum",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [
 					{
@@ -218,13 +188,13 @@
 					"type": "basic",
 					"basic": [
 						{
-							"key": "password",
-							"value": "12345678",
+							"key": "username",
+							"value": "",
 							"type": "string"
 						},
 						{
-							"key": "username",
-							"value": "Naum",
+							"key": "password",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -265,7 +235,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUaW5nYSIsImV4cCI6MTY5OTYxNjI2MX0.SEM6B8V73W4aF1ns5knnwCoX6ptO33b8Udjwxmfe3-Yv3mMVKx6gSSWkiPex24hbM3P4hb-dpl11DTf3ADDVjQ",
+						"value": "",
 						"type": "text"
 					}
 				],
@@ -328,7 +298,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/user/1",
+					"raw": "http://localhost:8080/api/order/submit/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -336,7 +306,8 @@
 					"port": "8080",
 					"path": [
 						"api",
-						"user",
+						"order",
+						"submit",
 						"1"
 					]
 				}
