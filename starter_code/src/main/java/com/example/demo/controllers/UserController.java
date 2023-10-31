@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,9 @@ public class UserController {
 	@Autowired
 	private CartRepository cartRepository;
 
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
 		return ResponseEntity.of(userRepository.findById(id));
@@ -38,7 +42,7 @@ public class UserController {
 		User user = userRepository.findByUsername(username);
 		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
 	}
-	
+
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
 		User user = new User();
@@ -46,8 +50,20 @@ public class UserController {
 		Cart cart = new Cart();
 		cartRepository.save(cart);
 		user.setCart(cart);
-		userRepository.save(user);
-		return ResponseEntity.ok(user);
+
+		// Check if the password is not null and if it matches the confirmPassword
+		if (createUserRequest.getPassword() != null && createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
+			// Check if the password length is at least 7 characters
+			if (createUserRequest.getPassword().length() >= 7) {
+				user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
+				userRepository.save(user);
+				return ResponseEntity.ok(user);
+			}
+		}
+
+		// If the conditions are not met, return a bad request response
+		return ResponseEntity.badRequest().build();
 	}
-	
+
+
 }

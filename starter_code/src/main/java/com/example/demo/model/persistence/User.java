@@ -29,8 +29,8 @@ public class User {
 	private String username;
 
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	@Column(nullable = false, unique = true)
-	@JsonProperty
+	@Column(nullable = false)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
 	
 	@OneToOne(cascade = CascadeType.ALL)

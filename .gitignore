@@ -1,2 +1,6 @@
 .idea/
 /starter_code/target/
+/LICENSE.md
+/.github/workflows/manual.yml
+/starter_code/mvnw
+/starter_code/mvnw.cmd
