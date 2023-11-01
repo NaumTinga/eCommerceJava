@@ -2,6 +2,9 @@ package com.example.demo.controllers;
 
 import java.util.Optional;
 
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +25,9 @@ import com.example.demo.model.requests.CreateUserRequest;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-	
+
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
+
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -34,13 +39,26 @@ public class UserController {
 
 	@GetMapping("/id/{id}")
 	public ResponseEntity<User> findById(@PathVariable Long id) {
-		return ResponseEntity.of(userRepository.findById(id));
+		Optional<User> user = userRepository.findById(id);
+		if(!user.isPresent()) {
+			log.info("User Not Found. id " + id);
+			return ResponseEntity.notFound().build();
+		} else {
+			log.info("User Found. id " + id);
+			return ResponseEntity.ok(user.get());
+		}
 	}
-	
+
 	@GetMapping("/{username}")
-	public ResponseEntity<User> findByUserName(@PathVariable String username) {
+	public ResponseEntity<User> findByUsername(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
-		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
+		if(user == null) {
+			log.info("UserController | findByUsername | User Not Found. username.: " + username);
+			return ResponseEntity.notFound().build();
+		} else {
+			log.info("UserController | findByUsername | User Found. username.: " + username);
+			return ResponseEntity.ok(user);
+		}
 	}
 
 	@PostMapping("/create")
@@ -57,11 +75,13 @@ public class UserController {
 			if (createUserRequest.getPassword().length() >= 7) {
 				user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 				userRepository.save(user);
+				log.info("User created successfully: username: " + user.getUsername());
 				return ResponseEntity.ok(user);
 			}
 		}
 
 		// If the conditions are not met, return a bad request response
+		log.info("User not created, password should have more 7 or more characters");
 		return ResponseEntity.badRequest().build();
 	}
 
