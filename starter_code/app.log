@@ -1,0 +1,29 @@
+2023-11-07 13:18:17.353  INFO 6571 --- [main] c.example.demo.SareetaApplicationTests   : Starting SareetaApplicationTests on Naums-MBP.mshome.net with PID 6571 (started by naumtinga in /Users/naumtinga/IdeaProjects/Udacity Java Developer/Security and DevOps/eCommerce/nd035-c4-Security-and-DevOps-master/starter_code)
+2023-11-07 13:18:17.354  INFO 6571 --- [main] c.example.demo.SareetaApplicationTests   : No active profile set, falling back to default profiles: default
+2023-11-07 13:18:17.541  INFO 6571 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-11-07 13:18:17.575  INFO 6571 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 31ms. Found 4 repository interfaces.
+2023-11-07 13:18:17.770  INFO 6571 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ef892e2c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-11-07 13:18:17.843  INFO 6571 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-07 13:18:17.907  INFO 6571 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-07 13:18:17.935  INFO 6571 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2023-11-07 13:18:17.971  INFO 6571 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2023-11-07 13:18:17.971  INFO 6571 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2023-11-07 13:18:17.985  INFO 6571 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2023-11-07 13:18:18.022  INFO 6571 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-11-07 13:18:18.221  INFO 6571 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-07 13:18:18.458  WARN 6571 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-07 13:18:18.495  INFO 6571 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69e8b711, org.springframework.security.web.context.SecurityContextPersistenceFilter@44a98a23, org.springframework.security.web.header.HeaderWriterFilter@33a7331, org.springframework.web.filter.CorsFilter@764a3867, org.springframework.security.web.authentication.logout.LogoutFilter@7fcbc336, com.example.demo.security.JWTAuthenticationFilter@d99df7a, com.example.demo.security.JWTAuthenticationVerificationFilter@67e1a5fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bfafce1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@339cde4b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b9dc62f, org.springframework.security.web.session.SessionManagementFilter@50d4775b, org.springframework.security.web.access.ExceptionTranslationFilter@4088702d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23aaa756]
+2023-11-07 13:18:18.617  INFO 6571 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-11-07 13:18:18.686  INFO 6571 --- [main] c.example.demo.SareetaApplicationTests   : Started SareetaApplicationTests in 1.413 seconds (JVM running for 1.953)
+2023-11-07 13:18:18.723  INFO 6571 --- [main] c.e.demo.controllers.OrderController     : Order submitted from username : Username
+2023-11-07 13:18:18.723  WARN 6571 --- [main] c.e.demo.controllers.OrderController     : Username does not exist or it's incorrect.
+2023-11-07 13:18:18.723  WARN 6571 --- [main] c.e.demo.controllers.OrderController     : Username does not exist or it's incorrect.
+2023-11-07 13:18:18.723  WARN 6571 --- [main] c.e.demo.controllers.OrderController     : Username does not exist or it's incorrect.
+2023-11-07 13:18:18.724  INFO 6571 --- [main] c.e.demo.controllers.OrderController     : Order submitted from username : Username
+2023-11-07 13:18:18.724  INFO 6571 --- [main] c.e.demo.controllers.OrderController     : List of order from username : Username
+2023-11-07 13:18:18.738  INFO 6571 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-11-07 13:18:18.739  INFO 6571 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-07 13:18:18.740  INFO 6571 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-07 13:18:18.741  INFO 6571 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

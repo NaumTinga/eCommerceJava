@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    // Set the path to your local Maven installation
+                    def mvnHome = tool name: 'Maven', type: 'hudson.tasks.Maven$MavenInstallation'
+                    def mvnCmd = "${mvnHome}/bin/mvn"
+                    sh "${mvnCmd} --version"
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Build successful!"
+        }
+    }
+}
