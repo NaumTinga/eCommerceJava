@@ -1,23 +1,28 @@
 package com.example.gestaomedicamentos.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
 
+    @Column(nullable = false, unique = true)
     private String username;
 
+    @Column
     private String password;
 
+    @OneToMany(mappedBy = "user", targetEntity = StockEntry.class, cascade = CascadeType.ALL)
+    private List<String> stockEntry;
 
     public void setId(Long id) {
         this.id = id;
